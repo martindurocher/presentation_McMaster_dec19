@@ -1,4 +1,7 @@
-# Floodnet - Presentation McMaster DEC 19
-Presentation I gave at McMaster about the developpement of of Flood Estimation Toolbox. 
+# Floodnet - Presentation at McMaster on December 2019
 
-See the presentation [here](http://htmlpreview.github.io/?https://github.com/martindurocher/presentation_McMaster_dec19/blob/master/Rmd/presentation_mcmaster_dec19.html) 
+Presentation I gave at McMaster about the developpement of the Flood Estimation Toolbox. 
+
+See the presentation printout [here](http://htmlpreview.github.io/?https://github.com/martindurocher/presentation_McMaster_dec19/blob/master/Rmd/presentation_mcmaster_dec19.html?presentme=false) 
+
+

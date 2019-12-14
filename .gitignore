@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+
+## Cache folders
+Rmd/presentation_mcmaster_dec19_cache/
+Rmd/presentation_mcmaster_dec19_files/
