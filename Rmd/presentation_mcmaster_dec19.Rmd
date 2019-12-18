@@ -6,9 +6,11 @@ output:
   revealjs::revealjs_presentation:
     theme: white
     highlight: pygments
-    center: false
+    center: true
     transition: none
     self_contained: true
+    reveal_options:
+      slideNumber: true
 ---
 
 ```{r setup, include=FALSE}
@@ -22,7 +24,7 @@ DB_HYDAT <- 'C:/Data/HYDAT_11AUG19/Hydat.sqlite3'
 - Tools and Examples
 - Graphical interface
 
-## Project structure
+## Project structure 
 
 - GitHub
   - [https://github.com/floodnetProject16/]()
@@ -68,7 +70,7 @@ DB_HYDAT <- 'C:/Data/HYDAT_11AUG19/Hydat.sqlite3'
 - Descriptors
 
 
-## Example
+## Example RFA
 
 ```{r, echo = FALSE, fig.width=8, fig.height = 5}
 suppressPackageStartupMessages(library(floodnetProject16))
@@ -109,7 +111,7 @@ points(desc[5,], pch = 13, cex = 2 )
 
 ```
 
-## Example
+## Example RFA
 
 ```{r echo = TRUE}
 library(floodnetProject16)
@@ -124,7 +126,7 @@ db <- 'C:/Data/HYDAT_11AUG19/Hydat.sqlite3'
 ```
 
 
-## Example: Extract hydrometric data
+## Example RFA
 
 - Similarity measure based on timing and regularity of the annual maximum events
 
@@ -134,8 +136,9 @@ an <- AmaxData(myreg, db, target = mystation,
                distance = sdist, size = 20)
 ```
 
----
-```{r fig.height= 6, fig.width=6}
+## Example RFA
+
+```{r fig.height= 5, fig.width=5}
 JulianPlot()
 title(main = 'Seasonal space')
 with(gaugedSites, points(season_x, season_y, pch = '+', cex = .5, col = 'darkgrey') )
@@ -145,16 +148,14 @@ with(gaugedSites[5,], points(season_x, season_y, pch = 13, cex = 2) )
 
 ```
 
-## Example: Performing RFA
+## Example RFA
 
 ```{r echo = TRUE, cache = TRUE}
 set.seed(1)
 FloodnetPool(an, mystation, period = c(10,100))
 ```
 
-
-
-## Example : Performing RFA
+## Example RFA
 
 - Using HYDAT
   - Connect to DB: `RSQLite`
@@ -168,7 +169,7 @@ FloodnetPool(an, mystation, period = c(10,100))
   - Estimating intersite correlation: `Intersite`.
   - Evaluating flood quantiles: `predict` 
 
-## Performing At-site frequency analysis using POT
+## Example POT
 
 - Same logic apply to the other frequency analysis
 
@@ -179,13 +180,13 @@ out <- FloodnetPot('01AF009', db = db, area = 184, u = 20,
 head(out$qua)
 ```
 
-## Performing At-site frequency analysis using POT
+## Example POT
 ```{r, echo = TRUE, fig.height=3.5, fig.width=5}
 plot(out$fit, ci = TRUE)
 ```
 
 
-## Example: Performing Prediction at ungauged basins
+## Example PUB
 
 ```{r echo = TRUE}
 xd <- with(descriptors,
@@ -205,7 +206,7 @@ xd <- xd[-target.id,]
 
 ```
 
-##  Example: Performing Prediction at ungauged basins
+## Example PUB
 
 ```{r, echo = TRUE, cache = TRUE}
 set.seed(1)
@@ -213,7 +214,7 @@ FloodnetRoi(target = target, sites = xd, db = db,
             period = 100, size = 30, nsim = 20, verbose = FALSE)
 ```
 
-## Important functions
+## Main functions
 
 - Data: `AmaxData`, `DailyData`, `DailyPeaksData`
 
@@ -223,7 +224,7 @@ FloodnetRoi(target = target, sites = xd, db = db,
 
 - Ungauged: `FloodnetRoi`
 
-## Graphical User Interface (GUI)
+## Graphical User Interface
 
 - Shiny Apps (web app)
 
@@ -251,12 +252,10 @@ FloodnetRoi(target = target, sites = xd, db = db,
 
 - Analysis of the 1114 stations
 
-## End
-
-- Thanks
+## Thanks
 
 - [mdurocher@uwaterloo.ca]()
 
-- [github.com/martindurocher/presentation_McMaster_dec19]()
+- [github.com/martindurocher]()
 
 
